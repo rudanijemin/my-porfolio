@@ -4,6 +4,8 @@ import { ProjectCard } from "./ProjectCard";
 import newsmonkey1 from "../assets/img/NewsMonkey1.png"
 import newsmonkey2 from "../assets/img/NewsMonkey2.png"
 import newsmonkey3 from "../assets/img/NewsMonkey3.png"
+import crypto1 from "../assets/img/cripto 1.png"
+import crypto2 from "../assets/img/cripto 2.png"
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -26,6 +28,21 @@ export const Projects = () => {
       description: "Sports Headline",
       imageURL: newsmonkey3
     }
+    
+  ]
+  const crypto = [
+  
+    {
+      title: "crypto",
+      description: "select onw coin",
+      imageURL: crypto1
+    },
+    {
+      title: "crypto",
+      description: "select another coin",
+      imageURL: crypto2
+    }
+    
   ];
 
   return (
@@ -47,7 +64,7 @@ export const Projects = () => {
                       <Nav.Link eventKey="second"> Instagram</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="third">cripto</Nav.Link>
+                      <Nav.Link eventKey="third">crypto</Nav.Link>
                     </Nav.Item>
                   </Nav>
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
@@ -71,7 +88,19 @@ export const Projects = () => {
                       <p></p>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
-                      <p></p>
+                      <p>one coin transfer in to another coin</p>
+                      <Row>
+                        {
+                          crypto.map((project, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...project}
+                                />
+                            )
+                          })
+                        }
+                      </Row>
                     </Tab.Pane>
                   </Tab.Content>
                 </Tab.Container>
